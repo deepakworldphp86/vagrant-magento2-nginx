@@ -60,7 +60,7 @@ if !  [ -x "$(command which go)" ]; then
 
 sudo add-apt-repository ppa:duh/golang
 sudo apt-get update
-sudo apt-get -yinstall golang
+sudo apt-get -y install golang
 
 else
     echo "Golang already installed."
@@ -206,8 +206,6 @@ sudo chmod 644 /etc/nginx/sites-available/site.conf
 sudo ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/site.conf
 sudo service nginx restart
 
-# clean /var/www
-sudo rm -Rf /var/www
 
 # symlink /var/www => /vagrant
-ln -s /vagrant /var/www
+ln -s /public /var/www
