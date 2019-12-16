@@ -12,18 +12,63 @@ sudo apt-get -y install software-properties-common
 sudo apt-get update
 sudo apt-get -y install expect zip unzip
 
-
-# Install curl software
+# curl
 if !  [ -x "$(command which curl)" ]; then
 
 sudo apt-get -y install curl 
 else
-    
-     echo "Curl already installed."
-
+    echo "Curl already installed."
 fi
 
-# Install git 
+# nodejs 
+if !  [ -x "$(command which nodejs)" ]; then
+
+sudo apt update
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt -y install nodejs
+node --version
+
+else
+    echo "nodejs already installed."
+fi
+
+# gcc 
+if !  [ -x "$(command which gcc)" ]; then
+
+sudo apt-get -y install gcc g++ make
+else
+    echo "Gcc already installed."
+fi
+
+
+# python 
+if !  [ -x "$(command which python)" ]; then
+
+sudo apt-get -y install python
+else
+    echo "Python already installed."
+fi
+
+
+#  Go lang  
+if !  [ -x "$(command which go)" ]; then
+
+#sudo add-apt-repository ppa:longsleep/golang-backports
+#sudo apt-get update
+#sudo apt-get install golang-go
+
+sudo add-apt-repository ppa:duh/golang
+sudo apt-get update
+sudo apt-get -yinstall golang
+
+else
+    echo "Golang already installed."
+fi 
+
+
+
+# git 
 if !  [ -x "$(command which git)" ]; then
 sudo apt-get -y install curl git
 else
@@ -32,7 +77,7 @@ else
 
 fi
 
-# Install nginx software
+# nginx 
 
 if !  [ -x "$(command which nginx)" ]; then
     sudo apt-get -y install nginx
@@ -50,7 +95,7 @@ else
 fi
 
 
-# PHP install
+# PHP 
 if !  [ -x "$(command which php)" ]; then
     sudo apt-get  install -y php7.2-common php7.2-cli php7.2-fpm php7.2-opcache php7.2-gd php7.2-mysql php7.2-curl 
     php7.2-intl php7.2-xsl php7.2-mbstring php7.2-zip php7.2-bcmath php7.2-soap
@@ -61,7 +106,7 @@ else
 
 fi
 
-# Maria DB install
+# Maria DB 
 if !  [ -x "$(command which mysql)" ]; then
   sudo apt-get install -y mariadb-server mariadb-client
   sudo systemctl stop mariadb.service
@@ -116,18 +161,18 @@ EOF
 
 #****************Create Database && DB import*********************#
 # create random password
-PASSWDDB="$(openssl rand -base64 12)"
+#PASSWDDB="$(openssl rand -base64 12)"
 
 # replace "-" with "_" for database username
-MAINDB=${USER_NAME//[^a-zA-Z0-9]/_}
+#MAINDB=${USER_NAME//[^a-zA-Z0-9]/_}
 
-mysql -u root -p<<MYSQL_SCRIPT
-CREATE DATABASE $MAINDB;
+#mysql -u root -p<<MYSQL_SCRIPT
+#CREATE DATABASE $MAINDB;
 
-CREATE DATABASE ${MAINDB} /*\!40100 DEFAULT CHARACTER SET utf8 */;
-CREATE USER ${MAINDB}@localhost IDENTIFIED BY '${PASSWDDB}';
-GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${MAINDB}'@'localhost';
-FLUSH PRIVILEGES;
+#CREATE DATABASE ${MAINDB} /*\!40100 DEFAULT CHARACTER SET utf8 */;
+#CREATE USER ${MAINDB}@localhost IDENTIFIED BY '${PASSWDDB}';
+#GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${MAINDB}'@'localhost';
+#FLUSH PRIVILEGES;
 
 
 
