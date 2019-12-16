@@ -201,10 +201,10 @@ EOF
 #****************End*********************#
 
 # set up nginx server
-sudo cp /vagrant/settings/nginx/nginx.conf /etc/nginx/sites-available/site.conf
-sudo chmod 644 /etc/nginx/sites-available/site.conf
-sudo ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/site.conf
-sudo service nginx restart
+#sudo cp /vagrant/settings/nginx/nginx.conf /etc/nginx/sites-available/site.conf
+#sudo chmod 644 /etc/nginx/sites-available/site.conf
+#sudo ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/site.conf
+#sudo service nginx restart
 
 
 # symlink /var/www => /vagrant
