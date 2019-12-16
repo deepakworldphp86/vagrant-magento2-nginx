@@ -208,4 +208,4 @@ sudo service nginx restart
 
 
 # symlink /var/www => /vagrant
-ln -s /public /var/www
+#ln -s /public /var/www
