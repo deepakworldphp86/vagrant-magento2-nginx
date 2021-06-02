@@ -7,11 +7,13 @@ sudo cp /vagrant/settings/nginx/magento.conf /etc/nginx/sites-available/magento.
 sudo chmod 644 /etc/nginx/sites-available/magento.conf
 sudo ln -s /etc/nginx/sites-available/magento.conf /etc/nginx/sites-enabled/magento.conf
 
-sudo cp /vagrant/settings/nginx/nginx.conf /etc/nginx/sites-available/nginx.conf
-sudo chmod 644 /etc/nginx/sites-available/nginx.conf
-sudo ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
-
 rm -rf /etc/nginx/sites-available/default   /etc/nginx/sites-enabled/default
+
+sudo cp /vagrant/settings/nginx/nginx.conf /etc/nginx/sites-available/default.conf
+sudo chmod 644 /etc/nginx/sites-available/default.conf
+sudo ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
+
+
 
 
 sudo service nginx restart
