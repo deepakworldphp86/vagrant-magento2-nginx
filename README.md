@@ -1,10 +1,7 @@
 # vagrant-magento2
-
-
-Reamain
-
-gcc and g++
-nodejs
-golang
-python
+#Elasticsearch
+#PHP7.4
+#MariaDb latest
+#Nginx latest
+#Composer Latest
 

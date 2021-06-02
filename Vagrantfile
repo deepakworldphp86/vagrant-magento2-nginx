@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/focal64"
     config.vm.network "private_network", ip: "192.168.50.4"
     config.vm.hostname = "magento2.vg.com"
-    config.vm.hostname = "wc.tesler.com"
-
+    config.vm.hostname = "mage2.local.com"
+    
     config.vm.synced_folder "public/", "/var/www/html",disabled: false, :mount_options => ["dmode=777", "fmode=666"]
     config.vm.provision :shell, :path => "settings/provision/bootstrap.sh"
     config.vm.provision :shell, :path => "settings/provision/start.sh", run: 'always'
