@@ -184,6 +184,8 @@ sudo echo "script.indexed: on" >> /etc/elasticsearch/elasticsearch.yml
 # enable cors (to be able to use Sense)
 sudo echo "http.cors.enabled: true" >> /etc/elasticsearch/elasticsearch.yml
 sudo echo "http.cors.allow-origin: /https?:\/\/.*/" >> /etc/elasticsearch/elasticsearch.yml
+sudo echo "cluster.initial_master_nodes: node-1" >> /etc/elasticsearch/elasticsearch.yml
+
 sudo systemctl start elasticsearch
 
 
@@ -194,8 +196,15 @@ sudo systemctl start elasticsearch
 # wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.1-amd64.deb
 # sudo dpkg -i elasticsearch-7.13.1-amd64.deb
 # sudo systemctl enable elasticsearch.service
-# sudo systemctl start elasticsearch.service
+# sudo systemctl start elasticsearch.snetwork.bind_host: 0
+
+#Put bellow line in /etc/elasticsearch/elasticsearch.yml
+# network.bind_host: 0
+# network.host: 0.0.0.0
+# http.port: 9200
+# cluster.initial_master_nodes: node-1ervice
 # sudo service elasticsearch status 
+
 
 
 
